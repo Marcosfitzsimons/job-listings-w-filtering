@@ -20,9 +20,17 @@
 
   .header {
     @apply bg-darkCyan;
-    background-image: url("./assets/bg-header-mobile.svg");
+    background-image: url("../public/assets/bg-header-mobile.svg");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
+  }
+  @media only screen and (min-width: 760px) {
+    .header {
+      background-image: url("../public/assets/bg-header-desktop.svg");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
   }
 }

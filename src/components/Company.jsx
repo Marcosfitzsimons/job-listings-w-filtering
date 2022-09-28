@@ -5,7 +5,7 @@ const JobPosting = ({ company, setFilteredTags }) => {
     setFilteredTags((prevValue) => {
       const filteredTags = [...prevValue, e.target.textContent];
       return [...new Set(filteredTags)];
-      // ...new Set() Set constructor removes duplicated values
+      // ...new Set() Set constructor removes duplicate values from an array.
     });
   };
 
@@ -17,41 +17,45 @@ const JobPosting = ({ company, setFilteredTags }) => {
           : "relative bg-white/95 rounded-md shadow-lg mb-10"
       }
     >
-      <div className="logo-container absolute w-12 top-[-1.5rem] left-4">
-        <img src={company.logo} alt={company.company} />
-      </div>
-      <div className="px-4 pt-9 pb-4 flex flex-col gap-4">
-        <div className="first-part flex flex-col gap-2 pb-4 border-b border-b-darkGrayishCyan">
-          <div className="top flex items-center gap-5">
-            <h3 className="text-sm font-bold text-darkCyan">
-              {company.company}
-            </h3>
-            <div className="flex gap-2">
-              {company.new ? (
-                <p className="flex items-center rounded-2xl bg-darkCyan text-xs text-white/95 pt-[0.2rem] py-[0.1rem] px-2 uppercase font-bold">
-                  new!
-                </p>
-              ) : (
-                ""
-              )}
-              {company.featured ? (
-                <p className="flex items-center rounded-2xl bg-veryDarkGrayishCyan text-xs text-white/95 pt-[0.2rem] py-[0.1rem] px-2 uppercase font-bold">
-                  featured
-                </p>
-              ) : (
-                ""
-              )}
+      <div className="px-4 pt-9 pb-4 flex flex-col gap-4 lg:pt-6 lg:pb-6 lg:flex-row lg:items-center lg:justify-between">
+        <div className="first-part flex flex-col lg:flex-row lg:items-center gap-2 pb-4 border-b border-b-darkGrayishCyan lg:border-none lg:pb-0 lg:gap-4">
+          <div className="logo-container absolute w-12 top-[-1.5rem] left-4 lg:relative lg:w-20 lg:top-0 lg:left-0">
+            <img src={company.logo} alt={company.company} />
+          </div>
+          <div className="">
+            <div className="top flex items-center gap-5 lg:gap-3">
+              <h3 className="text-sm lg:text-base font-bold text-darkCyan">
+                {company.company}
+              </h3>
+              <div className="flex gap-2">
+                {company.new ? (
+                  <p className="flex items-center rounded-2xl bg-darkCyan text-xs text-white/95 pt-[0.2rem] py-[0.1rem] px-2 uppercase font-bold">
+                    new!
+                  </p>
+                ) : (
+                  ""
+                )}
+                {company.featured ? (
+                  <p className="flex items-center rounded-2xl bg-veryDarkGrayishCyan text-xs text-white/95 pt-[0.2rem] py-[0.1rem] px-2 uppercase font-bold">
+                    featured
+                  </p>
+                ) : (
+                  ""
+                )}
+              </div>
             </div>
-          </div>
-          <div className="mid">
-            <h4 className="text-sm font-bold">{company.position}</h4>
-          </div>
-          <div className="bottom">
-            <ul className="job-info-list flex items-center gap-5 text-sm text-darkGrayishCyan list-disc">
-              <li className="list-none">{company.postedAt}</li>
-              <li className="job-info__contract">{company.contract}</li>
-              <li className="job-info__location">{company.location}</li>
-            </ul>
+            <div className="mid">
+              <h4 className="text-sm lg:text-base lg:text-md font-bold cursor-pointer hover:text-darkCyan transition-colors">
+                {company.position}
+              </h4>
+            </div>
+            <div className="bottom">
+              <ul className="job-info-list flex items-center gap-5 text-sm text-darkGrayishCyan list-disc">
+                <li className="list-none">{company.postedAt}</li>
+                <li className="job-info__contract">{company.contract}</li>
+                <li className="job-info__location">{company.location}</li>
+              </ul>
+            </div>
           </div>
         </div>
         <div className="second-part job-filters">
@@ -60,7 +64,7 @@ const JobPosting = ({ company, setFilteredTags }) => {
               ? company.languages.map((language) => {
                   return (
                     <li
-                      className="job-tools shadow-sm shadow-black/30 cursor-pointer  bg-bgFilter py-[.2rem] px-2 rounded-sm font-bold text-darkCyan text-sm"
+                      className="job-tools shadow-sm shadow-black/30 cursor-pointer  bg-bgFilter py-[.2rem] px-2 rounded-sm font-bold text-darkCyan text-sm hover:bg-darkCyan hover:text-white/95 transition-colors"
                       key={language}
                       onClick={handleFilteredTags}
                     >
@@ -73,7 +77,7 @@ const JobPosting = ({ company, setFilteredTags }) => {
               ? company.tools.map((tool) => {
                   return (
                     <li
-                      className="job-tools shadow-sm shadow-black/30 cursor-pointer  bg-bgFilter py-[.2rem] px-2 rounded-sm font-bold text-darkCyan text-sm"
+                      className="job-tools shadow-sm shadow-black/30 cursor-pointer bg-bgFilter py-[.2rem] px-2 rounded-sm font-bold text-darkCyan text-sm hover:bg-darkCyan hover:text-white/95 transition-colors"
                       key={tool}
                       onClick={handleFilteredTags}
                     >

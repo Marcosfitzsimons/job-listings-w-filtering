@@ -21,7 +21,7 @@ const Filters = ({ filteredTags, setFilteredTags }) => {
             })}
           </ul>
           <button
-            className="filters-button text-darkGrayishCyan font-bold text-sm"
+            className="filters-button text-darkGrayishCyan font-bold text-sm hover:text-darkCyan hover:underline transition-colors"
             onClick={handleSetFilteredTags}
           >
             Clear

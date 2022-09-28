@@ -15,6 +15,8 @@ function App() {
       .catch((err) => console.log(err));
   }, []);
 
+  // Filter job listenings
+
 
   return (
     <div className="App h-full">
