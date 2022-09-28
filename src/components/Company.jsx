@@ -1,6 +1,12 @@
 import React from "react";
 
-const JobPosting = ({ company }) => {
+const JobPosting = ({ company, setFilteredTags }) => {
+  const handleFilteredTags = (e) => {
+    setFilteredTags((prevValue) => {
+      return [...prevValue, e.target.textContent];
+    });
+  };
+
   return (
     <article
       className={
@@ -39,7 +45,7 @@ const JobPosting = ({ company }) => {
             <h4 className="text-sm font-bold">{company.position}</h4>
           </div>
           <div className="bottom">
-            <ul className="job-info-list flex gap-5 text-sm text-darkGrayishCyan list-disc">
+            <ul className="job-info-list flex items-center gap-5 text-sm text-darkGrayishCyan list-disc">
               <li className="list-none">{company.postedAt}</li>
               <li className="job-info__contract">{company.contract}</li>
               <li className="job-info__location">{company.location}</li>
@@ -48,21 +54,32 @@ const JobPosting = ({ company }) => {
         </div>
         <div className="second-part job-filters">
           <ul className="job-languages-tools flex gap-4 flex-wrap">
-            <li className="job-level shadow-sm shadow-black/30 cursor-pointer bg-bgFilter py-[.2rem] px-2 rounded-sm font-bold text-darkCyan text-sm ">
-              Midweight
-            </li>
-            <li className="job-role shadow-sm shadow-black/30 cursor-pointer bg-bgFilter py-[.2rem] px-2 rounded-sm font-bold text-darkCyan text-sm ">
-              Fullstack
-            </li>
-            <li className="job-languages shadow-sm shadow-black/30 cursor-pointer bg-bgFilter py-[.2rem] px-2 rounded-sm font-bold text-darkCyan text-sm ">
-              Python
-            </li>
-            <li className="job-languages shadow-sm shadow-black/30 cursor-pointer bg-bgFilter py-[.2rem] px-2 rounded-sm font-bold text-darkCyan text-sm ">
-              JavaScript
-            </li>
-            <li className="job-tools shadow-sm shadow-black/30 cursor-pointer  bg-bgFilter py-[.2rem] px-2 rounded-sm font-bold text-darkCyan text-sm ">
-              React
-            </li>
+            {company.languages.length > 0
+              ? company.languages.map((language) => {
+                  return (
+                    <li
+                      className="job-tools shadow-sm shadow-black/30 cursor-pointer  bg-bgFilter py-[.2rem] px-2 rounded-sm font-bold text-darkCyan text-sm"
+                      key={language}
+                      onClick={handleFilteredTags}
+                    >
+                      {language}
+                    </li>
+                  );
+                })
+              : ""}
+            {company.tools.length > 0
+              ? company.tools.map((tool) => {
+                  return (
+                    <li
+                      className="job-tools shadow-sm shadow-black/30 cursor-pointer  bg-bgFilter py-[.2rem] px-2 rounded-sm font-bold text-darkCyan text-sm"
+                      key={tool}
+                      onClick={handleFilteredTags}
+                    >
+                      {tool}
+                    </li>
+                  );
+                })
+              : ""}
           </ul>
         </div>
       </div>

@@ -6,6 +6,7 @@ import axios from 'axios';
 function App() {
 
   const [companies, setCompanies] = useState([]);
+  const [filteredTags, setFilteredTags] = useState([]);
 
   useEffect(() => {
     axios
@@ -14,12 +15,11 @@ function App() {
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(companies)
 
   return (
     <div className="App h-full">
       <Header />
-      <MainContent companies={companies} />
+      <MainContent companies={companies} setFilteredTags={setFilteredTags} filteredTags={filteredTags} />
     </div>
   );
 }
