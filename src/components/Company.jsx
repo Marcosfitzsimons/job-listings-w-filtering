@@ -3,7 +3,9 @@ import React from "react";
 const JobPosting = ({ company, setFilteredTags }) => {
   const handleFilteredTags = (e) => {
     setFilteredTags((prevValue) => {
-      return [...prevValue, e.target.textContent];
+      const filteredTags = [...prevValue, e.target.textContent];
+      return [...new Set(filteredTags)];
+      // ...new Set() Set constructor removes duplicated values
     });
   };
 
