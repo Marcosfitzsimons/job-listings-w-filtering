@@ -5,7 +5,7 @@ import Company from "./Company";
 const MainContent = ({ companies, setFilteredTags, filteredTags }) => {
   return (
     <main className="main flex justify-center">
-      <div className="main-container w-[90%] container mx-auto py-10">
+      <div className="main-container w-[90%] container lg:max-w-[1100px] mx-auto py-10">
         <Filters
           filteredTags={filteredTags}
           setFilteredTags={setFilteredTags}
