@@ -18,6 +18,7 @@ function App() {
 
   // Filter job listenings
 
+
   return (
     <div className="App h-full">
       <Header />
