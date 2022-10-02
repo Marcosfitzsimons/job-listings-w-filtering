@@ -64,13 +64,13 @@ const JobPosting = ({ company, setFilteredTags }) => {
           </div>
         </div>
         <div className="second-part job-filters">
-          <ul className="job-languages-tools flex w-[85%] lg:w-full gap-4 flex-wrap">
+          <ul className="tag-list flex w-[85%] lg:w-full gap-4 flex-wrap">
             {tags.map((tag, index) => {
               return (
                 <li
                   key={index}
                   onClick={handleFilteredTags}
-                  className="job-tools shadow-sm shadow-black/10 cursor-pointer bg-bgFilter pt-1 py-[.2rem] lg:pt-[.3rem] lg:py-[.1rem] px-2 rounded-md font-bold text-darkCyan text-sm lg:text-base hover:bg-darkCyan hover:text-white/95 transition-colors"
+                  className="tag origin-center transition-all duration-200 hover:origin-right hover:-translate-y-1 shadow-sm shadow-black/10 cursor-pointer bg-bgFilter pt-1 py-[.2rem] lg:pt-[.3rem] lg:py-[.1rem] px-2 rounded-md font-bold text-darkCyan text-sm lg:text-base hover:bg-darkCyan hover:text-white/95"
                 >
                   {tag}
                 </li>
