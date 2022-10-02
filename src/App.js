@@ -8,6 +8,7 @@ function App() {
   const [companies, setCompanies] = useState([]);
   const [filteredTags, setFilteredTags] = useState([]);
 
+
   useEffect(() => {
     axios
       .get("/data.json")
@@ -16,7 +17,6 @@ function App() {
   }, []);
 
   // Filter job listenings
-
 
   return (
     <div className="App h-full">
