@@ -1,26 +1,16 @@
 import React from "react";
-import Filters from "./Filters";
-import Company from "./Company";
+import FilteredTags from "./FilteredTags";
+import JobList from "./JobList";
 
-const MainContent = ({ companies, setFilteredTags, filteredTags }) => {
+const MainContent = ({ jobList, setFilteredTags, filteredTags }) => {
   return (
     <main className="main flex justify-center">
       <div className="main-container w-[90%] container lg:max-w-[1100px] mx-auto py-10">
-        <Filters
+        <FilteredTags
           filteredTags={filteredTags}
           setFilteredTags={setFilteredTags}
         />
-        <section className="list-container">
-          {companies.map((company) => {
-            return (
-              <Company
-                key={company.id}
-                company={company}
-                setFilteredTags={setFilteredTags}
-              />
-            );
-          })}
-        </section>
+        <JobList jobList={jobList} setFilteredTags={setFilteredTags} />
       </div>
     </main>
   );

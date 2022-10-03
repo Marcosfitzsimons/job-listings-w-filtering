@@ -5,14 +5,14 @@ import axios from 'axios';
 
 function App() {
 
-  const [companies, setCompanies] = useState([]);
+  const [jobList, setJobList] = useState([]);
   const [filteredTags, setFilteredTags] = useState([]);
 
 
   useEffect(() => {
     axios
       .get("/data.json")
-      .then((res) => setCompanies(res.data))
+      .then((res) => setJobList(res.data))
       .catch((err) => console.log(err));
   }, []);
 
@@ -22,7 +22,7 @@ function App() {
   return (
     <div className="App h-full">
       <Header />
-      <MainContent companies={companies} setFilteredTags={setFilteredTags} filteredTags={filteredTags} />
+      <MainContent jobList={jobList} setFilteredTags={setFilteredTags} filteredTags={filteredTags} />
     </div>
   );
 }
