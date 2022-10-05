@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-const JobPosting = ({ job, setFilteredTags }) => {
+const Job = ({ setJobList, job, filteredTags, setFilteredTags }) => {
   const {
     logo,
     company,
@@ -28,10 +28,15 @@ const JobPosting = ({ job, setFilteredTags }) => {
           text: e.target.textContent,
         },
       ];
-      return [...new Set(filteredTags)];
-      // ...new Set() Set constructor removes duplicate values from an array.
+      const uniqueFilteredTags = filteredTags.filter(
+        (v, i, a) =>
+          a.findIndex((v2) => ["text"].every((k) => v2[k] === v[k])) === i
+      );
+      return uniqueFilteredTags;
     });
   };
+
+  // ...new Set() Set constructor removes duplicate values from an array.
 
   return (
     <article
@@ -102,4 +107,4 @@ const JobPosting = ({ job, setFilteredTags }) => {
   );
 };
 
-export default JobPosting;
+export default Job;
