@@ -94,7 +94,7 @@ const Job = ({ setJobList, job, filteredTags, setFilteredTags }) => {
                 <li
                   key={index}
                   onClick={handleFilteredTags}
-                  className="tag transition-all duration-200 hover:-translate-y-[2px] hover:-translate-x-[2px] shadow-sm shadow-black/10 cursor-pointer bg-bgFilter pt-1 py-[.2rem] lg:pt-[.3rem] lg:py-[.1rem] px-2 rounded-md font-bold text-darkCyan text-sm lg:text-base hover:bg-darkCyan hover:text-white/95"
+                  className="tag transition-all duration-200 hover:-translate-y-[2px] hover:-translate-x-[2px] shadow-sm shadow-black/30 cursor-pointer bg-bgFilter pt-1 py-[.2rem] lg:pt-[.3rem] lg:py-[.1rem] px-2 rounded-md font-bold text-darkCyan text-sm lg:text-base hover:bg-darkCyan hover:text-white/95"
                 >
                   {tag}
                 </li>

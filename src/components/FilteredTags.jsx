@@ -1,12 +1,7 @@
 import React from "react";
 import FilteredTag from "./FilteredTag";
 
-const FilteredTags = ({
-  filteredTags,
-  setFilteredTags,
-  clearFilteredTags,
-  setJobList,
-}) => {
+const FilteredTags = ({ filteredTags, setFilteredTags, clearFilteredTags }) => {
   return (
     <>
       {filteredTags.length > 0 && (

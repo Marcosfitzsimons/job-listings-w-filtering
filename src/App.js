@@ -21,7 +21,7 @@ function App() {
     }
   };
 
-  // clear filtered tags
+  // Clear filtered tags
 
   const clearFilteredTags = () => {
     setFilteredTags([]);
@@ -29,6 +29,7 @@ function App() {
   };
 
   useEffect(() => {
+    console.log('chnange')
     filterJobs(filteredTags);
   }, [filteredTags]);
 
