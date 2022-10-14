@@ -7,7 +7,7 @@ function App() {
   const [jobList, setJobList] = useState(data);
   const [filteredTags, setFilteredTags] = useState([]);
 
-  // Filter job listenings
+  // Filter job listings
 
   const filterJobs = filteredTags => {
     if (filteredTags.length > 0) {
@@ -28,15 +28,29 @@ function App() {
     setJobList(data);
   };
 
+  // Delete filter
+
+  const handleDeleteFilter = (tag) => {
+    const newFilteredTags = filteredTags.filter((filter) => {
+      return filter.text !== tag.target.textContent;
+    });
+    setFilteredTags(newFilteredTags);
+  }
+
   useEffect(() => {
-    console.log('chnange')
     filterJobs(filteredTags);
   }, [filteredTags]);
 
   return (
     <div className="App h-full">
       <Header />
-      <MainContent jobList={jobList} setFilteredTags={setFilteredTags} filteredTags={filteredTags} clearFilteredTags={clearFilteredTags} />
+      <MainContent
+        jobList={jobList}
+        setJobList={setJobList}
+        filteredTags={filteredTags}
+        setFilteredTags={setFilteredTags}
+        handleDeleteFilter={handleDeleteFilter}
+        clearFilteredTags={clearFilteredTags} />
     </div>
   );
 }

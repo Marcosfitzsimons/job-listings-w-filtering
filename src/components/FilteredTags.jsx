@@ -1,7 +1,11 @@
 import React from "react";
 import FilteredTag from "./FilteredTag";
 
-const FilteredTags = ({ filteredTags, setFilteredTags, clearFilteredTags }) => {
+const FilteredTags = ({
+  handleDeleteFilter,
+  filteredTags,
+  clearFilteredTags,
+}) => {
   return (
     <>
       {filteredTags.length > 0 && (
@@ -12,9 +16,7 @@ const FilteredTags = ({ filteredTags, setFilteredTags, clearFilteredTags }) => {
                 <FilteredTag
                   key={tag.id}
                   tag={tag}
-                  tagText={tag.text}
-                  setFilteredTags={setFilteredTags}
-                  filteredTags={filteredTags}
+                  handleDeleteFilter={handleDeleteFilter}
                 />
               );
             })}

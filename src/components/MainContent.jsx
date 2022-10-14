@@ -8,14 +8,15 @@ const MainContent = ({
   jobList,
   setFilteredTags,
   filteredTags,
+  handleDeleteFilter,
 }) => {
   return (
     <main className="main flex justify-center">
       <div className="main-container w-[90%] container lg:max-w-[1100px] mx-auto py-10">
         <FilteredTags
           filteredTags={filteredTags}
-          setFilteredTags={setFilteredTags}
           clearFilteredTags={clearFilteredTags}
+          handleDeleteFilter={handleDeleteFilter}
         />
         <JobList
           jobList={jobList}
