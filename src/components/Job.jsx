@@ -1,4 +1,28 @@
 import { v4 as uuidv4 } from "uuid";
+import { motion } from "framer-motion";
+
+const jobVariants = {
+  hidden: {
+    x: -20,
+    opacity: 0,
+  },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: "easeIn",
+    },
+  },
+  exit: {
+    x: -20,
+    opacity: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  },
+};
 
 const Job = ({ setJobList, job, filteredTags, setFilteredTags }) => {
   const {
@@ -37,7 +61,11 @@ const Job = ({ setJobList, job, filteredTags, setFilteredTags }) => {
   // ...new Set() Set constructor removes duplicate values from an array.
 
   return (
-    <article
+    <motion.article
+      variants={jobVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
       className={
         featured
           ? "relative bg-white/95 rounded-md shadow-lg shadow-darkCyan/20 mb-10 border-l-4 border-l-darkCyan pb-2"
@@ -101,7 +129,7 @@ const Job = ({ setJobList, job, filteredTags, setFilteredTags }) => {
           </ul>
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 };
 
