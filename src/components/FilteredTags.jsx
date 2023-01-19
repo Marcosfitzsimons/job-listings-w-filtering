@@ -1,4 +1,5 @@
 import React from "react";
+import { AnimatePresence } from "framer-motion";
 import FilteredTag from "./FilteredTag";
 
 const FilteredTags = ({
@@ -11,15 +12,17 @@ const FilteredTags = ({
       {filteredTags.length > 0 && (
         <section className="relative bg-white/95 rounded-md shadow-lg mb-10 flex items-center justify-between gap-1 px-4 py-4 lg:py-6 lg:px-10">
           <ul className="filters-container flex flex-wrap gap-3">
-            {filteredTags.map((tag) => {
-              return (
-                <FilteredTag
-                  key={tag.id}
-                  tag={tag}
-                  handleDeleteFilter={handleDeleteFilter}
-                />
-              );
-            })}
+            <AnimatePresence>
+              {filteredTags.map((tag) => {
+                return (
+                  <FilteredTag
+                    key={tag.id}
+                    tag={tag}
+                    handleDeleteFilter={handleDeleteFilter}
+                  />
+                );
+              })}
+            </AnimatePresence>
           </ul>
           <button
             className="filters-button text-darkGrayishCyan font-bold text-sm hover:text-darkCyan hover:underline transition-colors lg:text-base"
